@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Edit Result</title>
+  </head>
+  <body>
+    <header>
+      <nav class="editHeader text-center" style="background-color: #06d6a0">
+        <div>
+          <h3>Result Management System</h3>
+        </div>
+
+        <div style="text-align: end; padding-right: 2em; font-weight: bold">
+          <a href="/logout ">Logout</a>
+        </div>
+      </nav>
+    </header>
+
+    <div>
+      <h3 style="margin-top: 1em" class="text-center">Edit Result</h3>
+    </div>
+
+    <div class="container col-md-5">
+      <div class="card">
+        <div class="card-body">
+          <form
+            method="post"
+            action="/results/edit?roll_no=<%=result.roll_no%>"
+          >
+            <fieldset class="form-group">
+              <label>Roll No.</label>
+              <p class="form-control"><%=result.roll_no %></p>
+            </fieldset>
+
+            <fieldset class="form-group">
+              <label>Name</label>
+              <input
+                type="text"
+                class="form-control"
+                name="name"
+                value="<%= result.name %>"
+                required
+              />
+            </fieldset>
+
+            <fieldset class="form-group">
+              <label>Date Of Birth</label>
+              <input
+                type="date"
+                class="form-control"
+                name="date_of_birth"
+                value="<%= result.date_of_birth %>"
+                required
+              />
+            </fieldset>
+
+            <fieldset class="form-group">
+              <label>Score</label>
+              <input
+                type="number"
+                class="form-control"
+                name="score"
+                value="<%= result.score %>"
+                required
+              />
+            </fieldset>
+
+            <button type="submit" class="btn btn-success">Edit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <%- include('include/_footer') %>
+  </body>
+</html>
